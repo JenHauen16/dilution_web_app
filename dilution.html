@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Dilution Calculator!!</title>
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="dilution.css"/>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Dilution calculator!</h1>
+    <label for="array">Select the array you are diluting for:</label>
+    <br>
+    <br>
+    
+    <!--form method="post" action="/var/www/html/dilution_app_cgi/dils.cgi"-->
+    <form>
+    <select id="array" name="array">
+      <option value=" "></option>
+      <option value="Oncoscan">Oncoscan</option>
+      <option value="Cytoscan">Cytoscan</option>
+    </select>
+  
+    <p>Put in the starting concentration in the box below</p>
+    <textarea name="startdil" id="startdil" rows="1" cols="7" style="font-size: 12pt"></textarea>
+ 
+
+    <p>Press the "Calculate!!" button to get the dilution amounts</p>
+
+    <button type="button" id="calculate" style="font-size: 12pt">
+      Calculate!!
+    </button>
+    <br>
+    <br>
+    <textarea name="buffer" id="buffer" rows="1" cols="60" style="font-size: 12pt"></textarea>
+    </form>
+
+  </body>
+</html>
+
+<script>
+    $("#calculate").click(function() {
+         setTimeout(function() {
+         $.ajax({
+	  url: "/dilution_app/dils.cgi?array=" + $("#array").val() + "&startdil=" + $("#startdil").val() + "&buffer=",
+	  dataType: "text"
+        }).done(function(response) {
+	  $("#buffer").html(response);
+	});
+     }, 1000)});
+</script>
+

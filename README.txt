@@ -1,6 +1,6 @@
-Dilution Desktop App
+Dilution Web App
 
-This offline app was created with the Python EEL library to connect the front-end (html, JS, and CSS) to the back-end work in Python.  
+This web app was created with front-end (html and CSS) to the back-end work with CGI and Python.  
 
  
 The purpose of this app is to calculate the DNA dilution amounts of buffer and original DNA sample needed to obtain the correct starting concentration of the DNA microarray assays' Oncoscan and Cytoscan.
